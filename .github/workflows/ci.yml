@@ -1,0 +1,15 @@
+name: amazon_actions_ci.yml
+
+on:
+    push:
+        branches:
+            - feature
+    pull_request:
+        branches:
+            - main
+            - feature
+
+jobs:
+    steps:
+        runs-on: ubuntu-24.04
+           
