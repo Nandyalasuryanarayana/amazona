@@ -21,9 +21,9 @@ jobs:
            - uses: actions/setup-node@v6
 
            - name: download dependencies
-           - uses: npm ci
+             run:  npm ci
 
-           
+
            
 
            
