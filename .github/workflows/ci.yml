@@ -16,6 +16,7 @@ jobs:
             - name: setup backend
               uses: cybergavin/setup-nodejs-project@v1
               with: 
+                node-version: "24"
                 lock-file: ./package.json
                 working-directory: backend
             
