@@ -14,10 +14,18 @@ jobs:
               uses: actions/checkout@v4
 
             - name: setup backend
-              uses: cybergavin/setup-nodejs-project@v1
+              uses: actions/setup-node@v6
               with: 
                 node-version: "24"
-                lock-file: ./package.json
-                working-directory: backend
+            
+            - name: install dependencies
+              run:  npm ci
+            
+            - name: test 
+              run: npm test
+
+            - name: build files
+              run: npm  build
+
             
             
