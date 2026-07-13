@@ -23,6 +23,10 @@ jobs:
             - name: install dependencies
               run:  npm install react-scripts@latest
              
+            - name: code linting
+              uses: reviewdog/action-eslint@v1
+              with: 
+                eslint_flags: "./"
             - name: build files
               run: npm run build
               env:
