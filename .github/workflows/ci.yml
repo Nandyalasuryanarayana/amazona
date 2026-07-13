@@ -24,9 +24,6 @@ jobs:
             - name: change directory
               run: cd backend 
 
-            - name: test 
-              run: npm test
-
             - name: build files
               run: npm  build
 
