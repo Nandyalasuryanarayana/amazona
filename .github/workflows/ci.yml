@@ -1,25 +1,22 @@
-name: amazon_actions_ci.yml
+name: frontend and backend
 
 on:
-    [push]
+    push:
+        branches:
+            feature
 
 jobs:
     job1:
-        runs-on: ubuntu-24.04
-
+        runs-on: ubuntu-24.04-arm
+        
         steps:
-             - name: checkout code  
-               uses: actions/checkout@v4
+            - name: copy latest code to pipeline
+              uses: actions/checkout@v4
 
-             - name: setup node
-               uses: actions/setup-node@v6
-               with: 
-                  node-version: "22"
-             
-             - name: download dependencies
-               run:  npm install 
-
-
-           
-
-           
+            - name: setup backend
+              uses: cybergavin/setup-nodejs-project@v1
+              with: 
+                lock-file: ./package.json
+                working-directory: backend
+            
+            
