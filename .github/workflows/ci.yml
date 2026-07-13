@@ -19,8 +19,11 @@ jobs:
                 node-version: "24"
             
             - name: install dependencies
-              run:  npm ci
-            
+              run:  npm install
+             
+            - name: change directory
+              run: cd backend 
+
             - name: test 
               run: npm test
 
