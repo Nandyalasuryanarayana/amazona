@@ -11,4 +11,3 @@ COPY ./package.json ./
 
 #install dependencies
 RUN npm install react-scripts@latest
-
