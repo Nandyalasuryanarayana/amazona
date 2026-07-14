@@ -1,4 +1,4 @@
-name: frontend pipeline
+name: Frontend pipeline
 
 on:
     push:
@@ -22,7 +22,7 @@ jobs:
                 node-version: "20"
 
             - name: install dependencies
-              run: npm install
+              run: npm install react-scripts@latest
 
             - name: code linting
               uses: reviewdog/action-eslint@v1
@@ -31,5 +31,5 @@ jobs:
             
             - name: compile code
               run: npm run build
-              
+
 
