@@ -34,8 +34,8 @@ jobs:
                NODE_OPTIONS: --openssl-legacy-provider
 
             - name: build docker image
-              run: docker build -t backend:1 -f Dockerfile.backend
-              
+              run: docker build -t backend:1 -f Dockerfile.backend .
+
 
             
             
