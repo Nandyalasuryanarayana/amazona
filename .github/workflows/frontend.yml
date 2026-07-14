@@ -33,6 +33,6 @@ jobs:
               run: npm run build
 
             - name: build docker image
-              run: docker build -t front:1 -f Dockerfile.frontend
+              run: docker build -t front:1 -f Dockerfile.frontend .
 
 
