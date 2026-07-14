@@ -1,21 +1,14 @@
-FROM node:16-alpine
+#dockerfile backend
 
+#base image
+FROM node:lts-slim
+
+#set workdir in the image
 WORKDIR /app
 
-# Copy package files from root
-COPY package*.json ./
+#copy dependencies into image
+COPY package.json ./
 
-# Install dependencies
-RUN npm install --production
+#install dependencies
+RUN npm install react-scripts@latest
 
-# Copy backend folder
-COPY backend ./backend
-
-# Set working directory to backend
-WORKDIR /app/backend
-
-# Expose port
-EXPOSE 5000
-
-# Start server
-CMD ["node", "server.js"]
