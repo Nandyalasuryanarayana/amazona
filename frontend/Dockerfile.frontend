@@ -1,0 +1,13 @@
+#dockerfile backend
+
+#base image
+FROM node:lts-slim
+
+#commands execute in this directory
+WORKDIR /app
+
+#copy dependencies into image
+COPY ./frontend/package.json ./
+
+#install dependencies
+RUN npm install react-scripts@latest
