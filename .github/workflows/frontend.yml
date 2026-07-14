@@ -1,36 +1,35 @@
-name: frontend and backend
+name: frontend pipeline
 
 on:
     push:
-        branches:
+        branches: 
             feature
-
 jobs:
     job1:
         runs-on: ubuntu-24.04-arm
         defaults:
-            run:
-                working-directory: backend
+             run:
+               working-directory: frontend
+              
+
         steps:
-            - name: copy latest code to pipeline
+            - name: checkout latest code to pipeline
               uses: actions/checkout@v4
 
-            - name: setup backend
+            - name: setup frontend node
               uses: actions/setup-node@v6
-              with: 
+              with:
                 node-version: "20"
-            
+
             - name: install dependencies
-              run:  npm install react-scripts@latest
-             
+              run: npm install
+
             - name: code linting
               uses: reviewdog/action-eslint@v1
               with: 
                 eslint_flags: "./"
-            - name: build files
+            
+            - name: compile code
               run: npm run build
-              env:
-               NODE_OPTIONS: --openssl-legacy-provider
+              
 
-            
-            
