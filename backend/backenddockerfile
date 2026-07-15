@@ -13,8 +13,7 @@ COPY ./package.json ./
 RUN npm install react-scripts@latest
 
 #copy application code
-COPY ./backend ./backend
-copy ./frontend ./frontend
+COPY . .
 
 #compile code 
 RUN npm run build
