@@ -11,3 +11,11 @@ COPY ./package.json ./
 
 #install dependencies
 RUN npm install react-scripts@latest
+
+#copy application code
+COPY ./backend/ ./
+
+#compile code 
+RUN npm run build
+
+
