@@ -15,7 +15,6 @@ RUN npm install react-scripts@latest
 #copy application code
 COPY . . 
 
-#compile code 
-RUN npm run build
+
 
 
