@@ -12,8 +12,8 @@ COPY ./package.json ./
 #install dependencies
 RUN npm install react-scripts@latest
 
-#copy project files
-COPY . .
+#copy the project
+COPY . . 
 
-#default argument
-CMD [ "node", "server.js" ]
+#compile the code
+RUN npm run build
