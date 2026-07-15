@@ -7,13 +7,13 @@ FROM node:lts-slim
 WORKDIR /app
 
 #copy dependencies into image
-COPY ./package.json ./
+COPY package.json ./
 
 #install dependencies
 RUN npm install react-scripts@latest
 
 #copy application code
-COPY ./ ./
+COPY . . 
 
 #compile code 
 RUN npm run build
