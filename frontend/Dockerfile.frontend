@@ -1,7 +1,7 @@
 #dockerfile backend
 
 #base image
-FROM node:lts-slim
+FROM node:lts-slim AS build
 
 #commands execute in this directory
 WORKDIR /app
@@ -17,3 +17,18 @@ COPY . .
 
 #compile the code
 RUN npm run build
+
+#runtime final stage
+FROM nginx:stable-alpine3.23-perl
+
+#workdir to execute app
+WORKDIR /app
+
+#copy build into final layer
+COPY --from=build /app/build .
+
+#document port
+EXPOSE 5000
+
+#default argument
+CMD [ "nginx", "index.js" ]
